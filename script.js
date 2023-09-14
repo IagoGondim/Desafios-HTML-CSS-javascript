@@ -25,3 +25,29 @@ function calcularMedia() {
     document.getElementById("resultado").innerText = "Aluno reprovado";
   }
 }
+
+function calcularIMC(){
+  var peso = parseFloat(document.getElementById("peso").value);
+  var altura = parseFloat(document.getElementById("altura").value);
+
+  var alturaQuadrado = altura * altura;
+  imc = peso / alturaQuadrado;
+
+  document.getElementById("imc").innerText = "Seu IMC é: " + imc.toFixed(2);
+
+  if (imc > 40) {
+			document.getElementById("resultado").innerText = "Obesidade III";
+		} else if (imc >= 35) {
+			document.getElementById("resultado").innerText =  "Obesidade II";
+		} else if (imc >= 30) {
+			document.getElementById("resultado").innerText = "Obesidade I";
+		} else if (imc >= 25) {
+			document.getElementById("resultado").innerText = "Acima do peso";
+		} else if (imc >= 18.5) {
+			document.getElementById("resultado").innerText = "Peso normal";
+		} else if (imc >= 17) {
+			document.getElementById("resultado").innerText = "Abaixo do peso";
+		} else {
+			document.getElementById("resultado").innerText = "Muito abaixo do peso";
+		}
+}

@@ -29,7 +29,20 @@
     </header>
     <div class="container">
       <div class="containerWrapper">
-        <h1>Desafio HTML, CSS e javascript</h1>
+        <h1>Calculadora de IMC</h1>
+
+        <label for="peso">Digite seu peso(kg):</label>
+        <input type="number" id="peso" min="0" />
+
+        <label for="altura">Digite sua altura(m):</label>
+        <input type="number" id="altura" min="0" />
+
+        <button onclick="calcularIMC()">Calcular IMC</button>
+
+        <p id="imc"></p>
+        <p id="resultado"></p>
+
+        <script src="../script.js"></script>
       </div>
     </div>
     <footer>Footer</footer>
