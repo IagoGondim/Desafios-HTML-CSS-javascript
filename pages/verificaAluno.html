@@ -29,7 +29,26 @@
     </header>
     <div class="container">
       <div class="containerWrapper">
-        <h1>Desafio HTML, CSS e javascript</h1>
+        <h1>Cálculo de situação de aluno</h1>
+
+        <div class="inputs">
+          <label for="nota1">Nota 1:</label>
+          <input type="number" id="nota1" min="0" max="10" />
+
+          <label for="nota2">Nota 2:</label>
+          <input type="number" id="nota2" min="0" max="10" />
+
+          <label for="nota3">Nota 3:</label>
+          <input type="number" id="nota3" min="0" max="10" />
+
+          <label for="frequencia">Frequência (%):</label>
+          <input type="number" id="frequencia" min="0" max="100" />
+        </div>
+
+        <button onclick="calcularMedia()">Calcular Média</button>
+
+        <p id="resultado"></p>
+        <script src="../script.js"></script>
       </div>
     </div>
     <footer>Footer</footer>
