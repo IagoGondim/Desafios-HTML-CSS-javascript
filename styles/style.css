@@ -61,6 +61,9 @@ label{
 input{
   font-size: 1rem;
 }
+select{
+  font-size: 1rem;
+}
 button{
   font-size: 1.225rem;
   width: 10rem;

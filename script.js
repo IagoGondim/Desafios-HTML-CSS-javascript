@@ -51,3 +51,24 @@ function calcularIMC(){
 			document.getElementById("resultado").innerText = "Muito abaixo do peso";
 		}
 }
+
+function calcularSalario(){
+  var select = document.getElementById('cargo');
+  var cargo = select.options[select.selectedIndex].text;
+  var salario = parseFloat(document.getElementById("salario").value);
+
+  if (cargo == "Gerente") {
+			aumento = salario * 0.05;
+		} else if (cargo == "Supervisor") {
+			aumento = salario * 0.08;
+		} else if (cargo == "Operador") {
+			aumento = salario * 0.09;
+		} else {
+			aumento = salario * 0.01;
+		}
+		novoSalario = salario + aumento;
+
+    document.getElementById("salarioAtual").innerText = "Sálario atual: R$"  + salario.toFixed(2);
+    document.getElementById("aumento").innerText = "Aumento foi de: R$" + aumento.toFixed(2);
+    document.getElementById("salarioAtualizado").innerText = "Sálario atualizado: R$" +  novoSalario.toFixed(2);
+}
