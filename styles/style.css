@@ -1,3 +1,13 @@
+:root {
+  --primary-bg-color: #212b3b;
+  --secondary-bg-color: #37465b;
+  --font-color: #f7f8fa;
+  --font-size-small: 1rem;
+  --font-size-medium: 1.5rem;
+  --font-size-large: 2.5rem;
+}
+
+
 header{
 display: flex;
 align-items: center;
@@ -5,7 +15,7 @@ justify-content: space-around;
 height: 5rem;
 position: sticky;
 top: 0;
-background: #37465b;
+background: var(--secondary-bg-color);
 z-index: 10;
 
 }
@@ -25,23 +35,23 @@ li {
 
 a{
   text-decoration: none;
-  color: #f7f8fa;
+  color: var(--font-color);
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: var(--font-size-large);
 }
 
 label {
-  font-size: 1.5rem;
+  font-size: var(--font-size-medium);
 }
 
 input {
-  font-size: 1rem;
+  font-size: var(--font-size-small)
 }
 
 select {
-  font-size: 1rem;
+    font-size: var(--font-size-small)
 }
 
 button {
@@ -58,7 +68,7 @@ p {
 footer {
   height: 8rem;
   background: #37465b;
-  color: #f7f8fa;
+  color: var(--font-color);
   text-align: center;
   padding: 10px 0;
   position: absolute;
@@ -66,12 +76,12 @@ footer {
 }
 
 .container{
-  color: #f7f8fa;
-  background: #212b3b;
+  color: var(--font-color);
+  background: var(--primary-bg-color)
 }
 
 .containerWrapper{
-  color: #f7f8fa;
+  color: var(--font-color);
   max-width: 1200px;
   height: 100vh;
   padding: 10rem;
