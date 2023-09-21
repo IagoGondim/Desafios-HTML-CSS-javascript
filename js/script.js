@@ -1,3 +1,20 @@
+function initDropdownMenu() {
+    const dropdownMenus = document.querySelectorAll('[data-dropdown]');
+    dropdownMenus.forEach(menu => {
+      ['touchstart', 'click'].forEach(userEvent => {
+        menu.addEventListener(userEvent, handleClick);
+      });
+    });
+  
+    function handleClick(event) {
+      event.preventDefault();
+      this.classList.add('active');
+      outsideClick(this, ['touchstart', 'click'], () => {
+        this.classList.remove('active');
+    });
+  };
+}
+
 function verificarIdade() {
   var idade = parseInt(document.getElementById("idade").value);
 
@@ -26,7 +43,7 @@ function calcularMedia() {
   }
 }
 
-function calcularIMC(){
+function calcularIMC() {
   var peso = parseFloat(document.getElementById("peso").value);
   var altura = parseFloat(document.getElementById("altura").value);
 
@@ -52,7 +69,7 @@ function calcularIMC(){
 		}
 }
 
-function calcularSalario(){
+function calcularSalario() {
   var select = document.getElementById('cargo');
   var cargo = select.options[select.selectedIndex].text;
   var salario = parseFloat(document.getElementById("salario").value);
@@ -72,3 +89,33 @@ function calcularSalario(){
     document.getElementById("aumento").innerText = "Aumento foi de: R$" + aumento.toFixed(2);
     document.getElementById("salarioAtualizado").innerText = "Sálario atualizado: R$" +  novoSalario.toFixed(2);
 }
+
+  var frutas = [];
+
+function adicionarFruta() {
+    var frutaInput = document.getElementById("fruta");
+    var fruta = frutaInput.value.trim();
+
+    if (fruta === "") {
+        alert("Digite o nome da fruta");
+        return;
+    } 
+
+    frutas.push(fruta);
+
+    frutaInput.value = "";
+
+    atualizarLista();
+}
+
+function atualizarLista() {
+    var listaFrutas = document.getElementById("listaFrutas");
+    listaFrutas.innerHTML = "";
+
+    for (var i = 0; i < frutas.length; i++) {
+        var li = document.createElement("li");
+        li.textContent = frutas[i];
+        listaFrutas.appendChild(li);
+    }
+}
+

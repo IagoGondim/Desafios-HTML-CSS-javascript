@@ -12,18 +12,20 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
       rel="stylesheet"
     />
-    <title>Verificar Idade</title>
+
+    <title>Adicionar Fruta</title>
   </head>
   <body>
     <script src="../js/nav.js"></script>
-
     <div class="container">
       <div class="containerWrapper">
-        <h1>Verifique se é maior de idade ou não.</h1>
-        <label for="idade">Digite sua idade:</label>
-        <input type="number" id="idade" min="0" />
-        <button onclick="verificarIdade()">Verificar</button>
-        <p id="resultado"></p>
+        <h1>Lista de Frutas</h1>
+
+        <input type="text" id="fruta" placeholder="Digite o nome da fruta" />
+        <button onclick="adicionarFruta()">Adicionar</button>
+
+        <ul id="listaFrutas"></ul>
+
         <script src="../js/script.js"></script>
       </div>
     </div>
