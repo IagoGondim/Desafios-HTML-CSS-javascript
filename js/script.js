@@ -119,3 +119,72 @@ function atualizarLista() {
     }
 }
 
+var contatos = [];
+
+function adicionarContato(event) {
+    event.preventDefault();
+
+    var nome = document.getElementById("nome").value;
+    var email = document.getElementById("email").value;
+    var telefone = document.getElementById("telefone").value;
+
+    var contato = { nome, email, telefone };
+    contatos.push(contato);
+
+    atualizarTabela();
+
+    document.getElementById("nome").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("telefone").value = "";
+}
+
+function atualizarTabela() {
+    var tabela = document.getElementById("tabelaContatos");
+    tabela.innerHTML = `
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Ações</th>
+        </tr>
+    `;
+
+    for (var i = 0; i < contatos.length; i++) {
+        var contato = contatos[i];
+        var tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td>${contato.nome}</td>
+            <td>${contato.email}</td>
+            <td>${contato.telefone}</td>
+            <td>
+                <button onclick="editarContato(${i})">Editar</button>
+                <button onclick="excluirContato(${i})">Excluir</button>
+            </td>
+        `;
+        tabela.appendChild(tr);
+    }
+}
+
+function editarContato(index) {
+    var contato = contatos[index];
+    var nome = prompt("Novo nome:", contato.nome);
+    var email = prompt("Novo email:", contato.email);
+    var telefone = prompt("Novo telefone:", contato.telefone);
+
+    if (nome !== null && email !== null && telefone !== null) {
+        contatos[index] = { nome, email, telefone };
+        atualizarTabela();
+    }
+}
+
+function excluirContato(index) {
+    if (confirm("Tem certeza de que deseja excluir este contato?")) {
+        contatos.splice(index, 1);
+        atualizarTabela();
+    }
+}
+
+var formContato = document.getElementById("formContato");
+formContato.addEventListener("submit", adicionarContato);
+
+atualizarTabela();
