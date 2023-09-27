@@ -188,3 +188,26 @@ var formContato = document.getElementById("formContato");
 formContato.addEventListener("submit", adicionarContato);
 
 atualizarTabela();
+
+function carregarImagem() {
+    var catCard = document.getElementById("catCard");
+    catCard.innerHTML = '<p>Carregando imagem...</p>';
+
+    fetch('https://api.thecatapi.com/v1/images/search')
+        .then(response => response.json())
+        .then(data => {
+            if (data.length > 0 && data[0].url) {
+                var imageUrl = data[0].url;
+                catCard.innerHTML = `
+                    <img src="${imageUrl}" alt="Imagem de Gato">
+                `;
+            } else {
+                catCard.innerHTML = '<p>Não foi possível carregar a imagem de gato.</p>';
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao carregar a imagem de gato:', error);
+            catCard.innerHTML = '<p>Erro ao carregar a imagem de gato.</p>';
+        });
+}
+
