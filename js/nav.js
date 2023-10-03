@@ -11,6 +11,7 @@ document.write("<li><a href='../pages/verificaAumento.html'>Verificar Aumento</a
 document.write("<li><a  href='../pages/adicionarFrutas.html'>Adicionar Frutras</a></li>");
 document.write("<li><a  href='../pages/cadastroContatos.html'>Cadastrar Contato</a></li>");
 document.write("<li><a  href='../pages/cardFetch.html'>Card Fetch</a></li>");
+document.write("<li><a  href='../pages/fetch.html'>Fetch</a></li>");
 document.write("</ul>");
 document.write("</li>");
 document.write("<li><a href='https://www.linkedin.com/in/iago-gondim/'>Contato</a></li>");
