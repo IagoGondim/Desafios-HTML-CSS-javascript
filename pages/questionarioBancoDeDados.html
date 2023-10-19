@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../favicon/cloud.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/reset.css" />
+
+    <title>Questionário banco de dados</title>
+  </head>
+  <body>
+    <script src="../js/nav.js"></script>
+    <div class="container">
+      <div class="containerWrapper">
+        <h1>Questionário banco de dados</h1>
+        <dl class="db-lista">
+          <dt>O que é uma tabela?</dt>
+          <dd>
+            É uma estrutura de dados do banco da dados relacional que organiza
+            os dados em linhas e colunas, tendo um nome exclusivo e usada para
+            armazenar informações sobre um tipo especifico de entidade.
+          </dd>
+          <dt>O que é um registro?</dt>
+          <dd>
+            Conhecido como uma linha, é uma entrada individual em uma tabela.
+            Ele contém informações específicas sobre um campo da entidade que a
+            tabela representa.
+          </dd>
+          <dt>O que é chave primária?</dt>
+          <dd>
+            É um atributo em uma tabela com um valor único e não pode ser nula e
+            nem pode se repetir, por exemplo a coluna id, que toda tabela tem
+            que ter para identificação.
+          </dd>
+          <dt>O que é chave estrangeira?</dt>
+          <dd>
+            Uma chave estrangeira é um atributo em uma tabela que estabelece um
+            relacionamento com a chave primária de outra tabela. Permitindo que
+            dados dados de tabelas diferentes se relacionem.
+          </dd>
+          <dt>O que é relacionamento?</dt>
+          <dd>
+            Um relacionamento em um banco de dados refere-se à associação entre
+            entidades ou tabelas. Usando chaves estrangeiras para conectar
+            registros em uma tabela a registros de outra tabela
+          </dd>
+          <dt>O que é cardinalidade? Quais os tipos que existem?</dt>
+          <dd>
+            Cardialidade refere-se ao número de instâncias em uma entidade que
+            podem estar associadas a um número especifico. Os tipos são:
+            <ul style="display: flex">
+              <li>Um para Um (1:1)</li>
+              <li>Um para Muitos (1:N)</li>
+              <li>Muitos para Um (N:1)</li>
+              <li>Muitos para Muitos (N:N)</li>
+            </ul>
+          </dd>
+          <dt>O que é entidade associativa e para que serve?</dt>
+          <dd>
+            Uma entidade associativa é uma tabela adicional usada para resolver
+            relacionamentos de muitos para muitos (N:N) entre outras tabelas.
+            Atuando como intermediário para conectar as entidades relacionadas,
+            armazenando pares de chaves estrangeiras das entidades relacionadas.
+          </dd>
+          <dt>O que é normalização e qual sua finalidade?</dt>
+          <dd>
+            É o processo de organizar os dados em um banco de dados de maneira
+            eficiente, elimenando redundâncias e evitando problemas de
+            integridade. Reduzindo a redundância de dados, melhorar a
+            integridade dos dados e simplificar as operalções de consulta e
+            atualização.
+          </dd>
+        </dl>
+      </div>
+      <script src="../js/according.js"></script>
+      <script src="../js/script.js"></script>
+    </div>
+    <script src="../js/footer.js"></script>
+  </body>
+</html>

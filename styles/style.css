@@ -3,6 +3,7 @@
   --secondary-bg-color: #29343d;
   --tertiary-bg-color: #3c5665;
   --font-color: #f7f8fa;
+  --font-color-secondary: #bcbdc0;
   --font-size-small: 1rem;
   --font-size-medium: 1.5rem;
   --font-size-large: 2.5rem;
@@ -218,3 +219,26 @@ table{
 max-width: 100%;
 height: auto;
 }
+
+.db-lista dt {
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: .5rem;
+  color: var(--font-color);
+}
+
+.db-lista dt::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 10px;
+  margin-right: 10px;
+  background: var(--tertiary-bg-color);
+}
+
+.db-lista dd {
+  margin-bottom: .5rem;
+  margin-left: 30px;
+  color: var(--font-color-secondary);
+}
+
