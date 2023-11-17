@@ -12,6 +12,7 @@ public class Main {
     Scanner scanner = new Scanner(System.in);
     ProdutoDAO produtoDAO = new ProdutoDAO();
 
+    produtoDAO.carregarDoArquivo("produtos.dat");
     int escolha;
 
     do {
@@ -22,31 +23,50 @@ public class Main {
       System.out.println("3. Excluir Produto");
       System.out.println("4. Visualizar Todos os Produtos");
       System.out.println("5. Visualizar Produto por ID");
+      System.out.println("6. Salvar dados em arquivo");
       System.out.println("0. Sair");
       System.out.println("--------------------------");
 
 
       escolha = scanner.nextInt();
-      scanner.nextLine(); // Consumir a quebra de linha
+      scanner.nextLine();
 
       switch (escolha) {
         case 1:
           System.out.println("Digite o nome do produto:");
           String nomeInserir = scanner.nextLine();
+
+          System.out.println("Digite descrição do produto:");
+          String descricaoInserir = scanner.nextLine();
+
           System.out.println("Digite o preço do produto:");
           double precoInserir = scanner.nextDouble();
-          Produto produtoInserir = new Produto(produtoDAO.getNextId(), nomeInserir, precoInserir);
+
+          System.out.println("Digite a quantidade do produto:");
+          int estoqueInserir = scanner.nextInt();
+
+          Produto produtoInserir = new Produto(0, nomeInserir, precoInserir, descricaoInserir, estoqueInserir);
           produtoDAO.inserirProduto(produtoInserir);
           break;
         case 2:
           System.out.println("Digite o ID do produto a ser alterado:");
           int idAlterar = scanner.nextInt();
-          scanner.nextLine(); // Consumir a quebra de linha
+
+          scanner.nextLine();
+
           System.out.println("Digite o novo nome do produto:");
           String nomeAlterar = scanner.nextLine();
+
+          System.out.println("Digite descrição do produto:");
+          String descricaoAlterar = scanner.nextLine();
+
           System.out.println("Digite o novo preço do produto:");
           double precoAlterar = scanner.nextDouble();
-          Produto produtoAlterar = new Produto(idAlterar, nomeAlterar, precoAlterar);
+
+          System.out.println("Digite a quantidade do produto:");
+          int estoqueAlterar = scanner.nextInt();
+
+          Produto produtoAlterar = new Produto(idAlterar, nomeAlterar, precoAlterar, descricaoAlterar, estoqueAlterar);
           produtoDAO.alterarProduto(idAlterar, produtoAlterar);
           break;
         case 3:
@@ -58,7 +78,8 @@ public class Main {
           List<Produto> todosProdutos = produtoDAO.selecionarTodos();
           System.out.println("Todos os produtos:");
           for (Produto produto : todosProdutos) {
-            System.out.println(produto.getId() + ": " + produto.getNome() + " - R$" + produto.getPreco());
+            System.out.println("Codigo: " + produto.getId() + " - Nome: " + produto.getNome() + " - Descrição: " + produto.getDescricao() + " - Preço: R$" + produto.getPreco() + "Estoque: " + produto.getEstoque());
+
           }
           break;
         case 5:
@@ -67,10 +88,13 @@ public class Main {
           Produto produtoVisualizar = produtoDAO.selecionarProduto(idVisualizar);
           if (produtoVisualizar != null) {
             System.out.println("Produto encontrado:");
-            System.out.println(produtoVisualizar.getId() + ": " + produtoVisualizar.getNome() + " - R$" + produtoVisualizar.getPreco());
+            System.out.println("Codigo: " + produtoVisualizar.getId() + " - Nome: " + produtoVisualizar.getNome() + " - Descrição: " + produtoVisualizar.getDescricao() + " - Preço: R$" + produtoVisualizar.getPreco() + "Estoque: " + produtoVisualizar.getEstoque());
           } else {
             System.out.println("Produto não encontrado.");
           }
+          break;
+        case 6:
+          produtoDAO.salvarParaArquivo("produtos.dat");
           break;
         case 0:
           System.out.println("Saindo do programa. Até mais!");
