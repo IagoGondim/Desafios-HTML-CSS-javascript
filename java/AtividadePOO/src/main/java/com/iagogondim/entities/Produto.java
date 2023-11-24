@@ -6,8 +6,8 @@ public class Produto implements Serializable {
   private static final long serialVersionUID = 1L;
   private int id;
   private String nome;
-  private double preco;
   private String descricao;
+  private double preco;
   private int estoque;
 
   public Produto(int id, String nome, double preco, String descricao, int estoque) {
@@ -16,6 +16,9 @@ public class Produto implements Serializable {
     this.preco = preco;
     this.descricao = descricao;
     this.estoque = estoque;
+  }
+  public Produto() {
+
   }
 
   public String getDescricao() {
